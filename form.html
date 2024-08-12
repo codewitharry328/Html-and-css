@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgba(85, 83, 83, 0.369);
+    }
+    div{
+        margin-left: 30%;
+        width: 30%;
+        padding: 10px 30px;
+        background-color: gainsboro;
+        border-radius: 90px 0px 70px 0px;
+        box-shadow: 0 4px 8px 0 hsl(0, 74%, 87%), 0 6px 20px 0 hsl(0, 74%, 87%);
+    }
+    div h2{
+        text-align: center;
+        margin-bottom: 0;
+        font-family: math;
+        padding: 0px 30px;
+    }
+    input[type="text"],input[type="email"],input[type="number"],input[type="submit"],textarea{
+        width: 98%;
+        height: 25px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: none;
+        box-shadow:  0 4px 8px 0 hsl(0, 74%, 87%), 0 6px 20px 0 hsl(0, 74%, 87%);
+        padding: 0px 7px;
+    }
+    hr{
+        margin-bottom: 40px;
+        color: hsl(0, 74%, 87%);
+        background-color: hsl(0, 74%, 87%);
+        height: 3px;
+        border: 50%;
+    }
+    label{
+        font-weight: 700;
+    }
+    input[type="text"]:hover{
+        background-color: rgb(242, 205, 205);
+    }
+    input[type="email"]:hover{
+       background-color: rgb(242, 205, 205);
+    }
+    input[type="number"]:hover{
+        background-color: rgb(242, 205, 205);
+    }
+    input[type="sumbit"]:hover{
+        background-color: rgb(234, 134, 134);
+        color: white;
+    }
+    textarea:hover{
+        background-color: rgb(242, 205, 205);
+    }
+</style>
+<body>
+    <div>
+        <h2>FORM GET</h2>
+        <hr>
+        <form action="">
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" placeholder="Full Name"><br><br>
+            <label for="email" >E-mail</label><br>
+            <input type="email" id="email" placeholder="E-mail"><br><br>
+            <label for="number">contact Number</label><br>
+            <input type="number" id="number" placeholder="Number"><br><br>
+            <label for="add">Address:</label><br>
+            <textarea name="address" id="add" placeholder="Address">Address:</textarea>
+            <input type="submit" value="submit"><br>
+
+        </form>
+    </div>
+    
+</body>
+</html>
