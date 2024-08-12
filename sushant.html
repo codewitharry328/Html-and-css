@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.timer {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+button {
+    font-size: 16px;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#start {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+#stop {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+#reset {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+}
+</style>
+<body>
+    <div class="timer">
+        <span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+    <script>
+        let timerInterval;
+let totalSeconds = 0;
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        totalSeconds++;
+        displayTime();
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+function resetTimer() {
+    totalSeconds = 0;
+    displayTime();
+    stopTimer();
+}
+
+function displayTime() {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+}
+
+document.getElementById("start").addEventListener("click", startTimer);
+document.getElementById("stop").addEventListener("click", stopTimer);
+document.getElementById("reset").addEventListener("click", resetTimer);
+
+    </script>
+</body>
+</html>
