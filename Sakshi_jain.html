@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Digital Watch</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+        }
+
+        .watch {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+            display: inline-block;
+        }
+
+        .time {
+            font-size: 3.5rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .date {
+            font-size: 1.5rem;
+            color: #34495e;
+        }
+
+        .am-pm {
+            font-size: 1rem;
+            color: #e74c3c;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="watch">
+    <div id="time" class="time"></div>
+    <div id="date" class="date"></div>
+</div>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const amPm = hours >= 12 ? 'PM' : 'AM';
+
+        // 12-hour format
+        hours = hours % 12 || 12;
+
+        // Adding leading zeros
+        const formattedTime = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}<span class="am-pm"> ${amPm}</span>`;
+
+        // Displaying time
+        document.getElementById('time').innerHTML = formattedTime;
+
+        // Displaying date
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const dayName = days[now.getDay()];
+        const day = now.getDate();
+        const month = months[now.getMonth()];
+        const year = now.getFullYear();
+
+        const formattedDate = `${dayName}, ${month} ${day}, ${year}`;
+        document.getElementById('date').textContent = formattedDate;
+    }
+
+    function pad(number) {
+        return number < 10 ? '0' + number : number;
+    }
+
+    setInterval(updateTime, 1000);  // Update the time every second
+    updateTime();  // Initial call to display the time immediately
+</script>
+
+</body>
+</html>
