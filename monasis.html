@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="index.php" method="post">
+        Enter Your Message:-<input type="text" name="MSG"="30">
+        <input type="submit" value="send">
+    </form> -->
+
+    <div class="items">
+        <input type="" name="" id="keywordSearch1" placeholder="">
+        <button onclick="onClick(this)">Search 1</button>
+    </div>
+</body>
+<script>
+    function onClick($this) {
+  var val = $this.previousElementSibling.value;
+  if(val == ''){
+      console.log('no input');
+  }else{
+     document.write(val);
+  }
+}
+</script>
+</html>
